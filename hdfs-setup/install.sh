@@ -4,8 +4,8 @@ sudo apt-get install ssh -y
 sudo apt-get install pdsh -y
 
 sudo apt install openjdk-8-jdk -y
-echo sh -c 'echo "JAVA_HOME=\"/usr/lib/jvm/java-8-openjdk-amd64/\"" >> ~/.bashrc'
-echo sh -c 'echo "PATH=$PATH:$JAVA_HOME/bin" >> ~/.bashrc'
+sudo sh -c 'echo "JAVA_HOME=\"/usr/lib/jvm/java-8-openjdk-amd64/\"" >> ~/.bashrc'
+sudo sh -c 'echo "PATH=$PATH:$JAVA_HOME/bin" >> ~/.bashrc'
 sudo sh -c 'echo "JAVA_HOME=\"/usr/lib/jvm/java-8-openjdk-amd64/\"" >> /etc/profile'
 sudo sh -c 'echo "PATH=$PATH:$JAVA_HOME/bin" >> /etc/profile'
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/
