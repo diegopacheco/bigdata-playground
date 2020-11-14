@@ -5,8 +5,10 @@ sudo apt-get install pdsh -y
 
 sudo apt install openjdk-8-jdk -y
 echo "JAVA_HOME=\"/usr/lib/jvm/java-8-openjdk-amd64/\"" > ~/.bashrc
+echo "PATH=$PATH:$JAVA_HOME/bin" > ~/.bashrc
 source ~/.bashrc
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/
+export PATH=$PATH:$JAVA_HOME/bin
 
 java -version
 
