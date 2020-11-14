@@ -23,5 +23,9 @@ cp etc/hadoop/*.xml input
 bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-3.3.0.jar grep input output 'dfs[a-z.]+'
 cat output/*
 
- bin/hdfs namenode -format
- sbin/start-dfs.sh
+ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
+cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+chmod 0600 ~/.ssh/authorized_keys
+
+bin/hdfs namenode -format
+sbin/start-dfs.sh
