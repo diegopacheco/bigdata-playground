@@ -4,10 +4,10 @@ sudo apt-get install ssh -y
 sudo apt-get install pdsh -y
 
 sudo apt install openjdk-8-jdk -y
-sudo sh -c 'echo "JAVA_HOME=\"/usr/lib/jvm/java-8-openjdk-amd64/\"" >> ~/.bashrc'
-sudo sh -c 'echo "PATH=$PATH:$JAVA_HOME/bin" >> ~/.bashrc'
-sudo sh -c 'echo "JAVA_HOME=\"/usr/lib/jvm/java-8-openjdk-amd64/\"" >> /etc/profile'
-sudo sh -c 'echo "PATH=$PATH:$JAVA_HOME/bin" >> /etc/profile'
+sh -c 'echo "export JAVA_HOME=\"/usr/lib/jvm/java-8-openjdk-amd64/\"" >> ~/.bashrc'
+sh -c 'echo "export PATH=$PATH:$JAVA_HOME/bin" >> ~/.bashrc'
+sudo sh -c 'echo "export JAVA_HOME=\"/usr/lib/jvm/java-8-openjdk-amd64/\"" >> /etc/profile'
+sudo sh -c 'echo "export PATH=$PATH:$JAVA_HOME/bin" >> /etc/profile'
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/
 export PATH=$PATH:$JAVA_HOME/bin
 
@@ -29,7 +29,7 @@ cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 chmod 0600 ~/.ssh/authorized_keys
 
 sudo sh -c 'echo "ssh" > /etc/pdsh/rcmd_default'
-ssh -o StrictHostKeyChecking=no localhost
+#ssh -o StrictHostKeyChecking=no localhost
 
 bin/hdfs namenode -format
 sbin/start-dfs.sh
