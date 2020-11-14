@@ -5,6 +5,7 @@
 
 .idea/
 target/
+hadoop-3.3.0/
 
 # Log file
 *.log
