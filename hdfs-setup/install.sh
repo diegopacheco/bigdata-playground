@@ -4,9 +4,10 @@ sudo apt-get install ssh -y
 sudo apt-get install pdsh -y
 
 sudo apt install openjdk-8-jdk -y
-echo "JAVA_HOME=\"/usr/lib/jvm/java-8-openjdk-amd64/\"" > ~/.bashrc
-echo "PATH=$PATH:$JAVA_HOME/bin" > ~/.bashrc
-source ~/.bashrc
+echo sh -c 'echo "JAVA_HOME=\"/usr/lib/jvm/java-8-openjdk-amd64/\"" >> ~/.bashrc'
+echo sh -c 'echo "PATH=$PATH:$JAVA_HOME/bin" >> ~/.bashrc'
+sudo sh -c 'echo "JAVA_HOME=\"/usr/lib/jvm/java-8-openjdk-amd64/\"" >> /etc/profile'
+sudo sh -c 'echo "PATH=$PATH:$JAVA_HOME/bin" >> /etc/profile'
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/
 export PATH=$PATH:$JAVA_HOME/bin
 
@@ -26,6 +27,9 @@ cat output/*
 ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
 cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 chmod 0600 ~/.ssh/authorized_keys
+
+sudo sh -c 'echo "ssh" > /etc/pdsh/rcmd_default'
+ssh -o StrictHostKeyChecking=no localhost
 
 bin/hdfs namenode -format
 sbin/start-dfs.sh
