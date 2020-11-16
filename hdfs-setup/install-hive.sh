@@ -22,3 +22,8 @@ $HADOOP_HOME/bin/hadoop fs -mkdir       /user/hive/
 $HADOOP_HOME/bin/hadoop fs -mkdir       /user/hive/warehouse/
 $HADOOP_HOME/bin/hadoop fs -chmod g+w   /tmp
 $HADOOP_HOME/bin/hadoop fs -chmod g+w   /user/hive/warehouse/
+
+rm -rf /home/vagrant/apache-hive-3.1.2-bin/lib/guava-19.0.jar
+cp /home/vagrant/hadoop-3.3.0/share/hadoop/hdfs/lib/guava-27.0-jre.jar /home/vagrant/apache-hive-3.1.2-bin/lib/
+
+echo "exit;" | $HIVE_HOME/bin/hive
