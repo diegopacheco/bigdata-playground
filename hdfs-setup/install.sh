@@ -31,7 +31,8 @@ cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 chmod 0600 ~/.ssh/authorized_keys
 sudo sh -c 'echo "ssh" > /etc/pdsh/rcmd_default'
 
-echo "JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/" >> $HADOOPBASE/etc/hadoop/hadoop-env.sh
+echo "export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/" >> $HADOOPBASE/etc/hadoop/hadoop-env.sh
+echo "export HADOOP_HOME=$HADOOPBASE" >> $HADOOPBASE/etc/hadoop/hadoop-env.sh
 
 echo "<configuration>
     <property>
