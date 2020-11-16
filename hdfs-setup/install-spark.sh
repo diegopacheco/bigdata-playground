@@ -22,7 +22,7 @@ scala -version
 ## Spark
 ##
 
-wget -nc https://www.apache.org/dyn/closer.lua/spark/spark-3.0.1/spark-3.0.1-bin-hadoop3.2.tgz
+wget -nc https://downloads.apache.org/spark/spark-3.0.1/spark-3.0.1-bin-hadoop3.2.tgz
 tar -xvf spark-3.0.1-bin-hadoop3.2.tgz
 mv spark-3.0.1-bin-hadoop3.2/ /home/vagrant/ 
 
