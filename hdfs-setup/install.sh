@@ -26,6 +26,9 @@ wget -nc https://downloads.apache.org/hadoop/common/hadoop-3.3.0/hadoop-3.3.0-aa
 tar -xvf hadoop-3.3.0-aarch64.tar.gz
 #rm -rf hadoop-3.3.0-aarch64.tar.gz
 
+sh -c 'echo "export HADOOP_HOME=\"/home/vagrant/hadoop-3.3.0/\"" >> ~/.bashrc'
+sudo sh -c 'echo "export HADOOP_HOME=\"/home/vagrant/hadoop-3.3.0/\"" >> /etc/profile'
+
 cd $HADOOPBASE/
 mkdir -p input/
 cp etc/hadoop/*.xml input
