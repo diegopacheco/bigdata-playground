@@ -13,6 +13,9 @@ sudo sh -c 'echo "export HIVE_HOME=\"/home/vagrant/apache-hive-3.1.2-bin/\"" >> 
 sh -c 'echo "export PATH=\"$PATH:$HIVE_HOME/bin\"" >> ~/.bashrc'
 sudo sh -c 'echo "export PATH=\"$PATH:$HIVE_HOME/bin\"" >> /etc/profile'
 
+mkdir -p /home/vagrant/hive/
+mkdir -p /home/vagrant/hive/warehouse/
+
 $HADOOP_HOME/bin/hadoop fs -mkdir       /tmp
 $HADOOP_HOME/bin/hadoop fs -mkdir       /home/vagrant/hive/warehouse
 $HADOOP_HOME/bin/hadoop fs -chmod g+w   /tmp
