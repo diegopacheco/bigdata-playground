@@ -12,6 +12,12 @@ export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/
 export PATH=$PATH:$JAVA_HOME/bin
 
 java -version
+sudo killall java
+sudo killall java
+
+###
+### HDFS
+###
 
 cd /home/vagrant/
 HADOOPBASE=/home/vagrant/hadoop-3.3.0/
@@ -50,3 +56,33 @@ echo "<configuration>
 
 bin/hdfs namenode -format
 sbin/start-dfs.sh
+
+###
+### YARN
+###
+HADOOPBASE=/home/vagrant/hadoop-3.3.0/
+cd $HADOOPBASE/
+
+echo "<configuration>
+    <property>
+        <name>mapreduce.framework.name</name>
+        <value>yarn</value>
+    </property>
+    <property>
+        <name>mapreduce.application.classpath</name>
+        <value>$HADOOP_MAPRED_HOME/share/hadoop/mapreduce/*:$HADOOP_MAPRED_HOME/share/hadoop/mapreduce/lib/*</value>
+    </property>
+</configuration>" > $HADOOPBASE/etc/hadoop/mapred-site.xml
+
+echo "<configuration>
+    <property>
+        <name>yarn.nodemanager.aux-services</name>
+        <value>mapreduce_shuffle</value>
+    </property>
+    <property>
+        <name>yarn.nodemanager.env-whitelist</name>
+        <value>JAVA_HOME,HADOOP_COMMON_HOME,HADOOP_HDFS_HOME,HADOOP_CONF_DIR,CLASSPATH_PREPEND_DISTCACHE,HADOOP_YARN_HOME,HADOOP_MAPRED_HOME</value>
+    </property>
+</configuration>" > $HADOOPBASE/etc/hadoop/yarn-site.xml
+
+sbin/start-yarn.sh
